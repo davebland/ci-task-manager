@@ -19,5 +19,9 @@ mongo = PyMongo(app)
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
     
+@app.route('/add_tasks')
+def add_tasks():
+    return render_template("add_task.html", categories=mongo.db.catagories.find())
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)

@@ -1,12 +1,14 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
+<ul class="collapsible" data-collapsible="accordion">
     {% for task in tasks %}
-    <p>
-        Task: {{task.task_name}} <br>
-        Catagory: {{task.category_name}} <br>
-        Desc: {{task.task_description}} <br>
-        Urgent: {{task.is_urgent}} <br>
-        Due: {{task.due_date}}
-    </p>
+    <li>
+        <div class="collapsible-header"><i class="material-icons">arrow_drop_down_circle</i> <strong>{{task.category_name}}</strong>  - {{task.task_name}}</div>
+        <div class="collapsible-body">
+            <p>{{task.task_description}}</p>
+            <p>Urgent? {{task.is_urgent}}</p>
+            <p>Due : {{task.due_date}}</p>
+        </div>
+    </li>
     {% endfor %}
+</ul>
 {% endblock %}
