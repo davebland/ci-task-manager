@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Tasks</h3>
+<a href="{{ url_for('add_tasks') }}" class="waves-effect waves-light btn button_small">Add Task</a></button>
 <ul class="collapsible" data-collapsible="accordion">
     {% for task in tasks %}
     <li>
